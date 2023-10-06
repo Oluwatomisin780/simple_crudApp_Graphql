@@ -1,0 +1,36 @@
+scalar DateTime
+
+type SimpleCrudApp {
+  # Example field (placeholder)
+  id: Int!
+  task: String!
+  description: String
+  createdAt: DateTime
+}
+
+input CreateSimpleCrudAppInput {
+  # Example field (placeholder)
+  task: String!
+  description: String!
+}
+
+input UpdateSimpleCrudAppInput {
+  id: Int!
+  task: String
+  description: String
+}
+
+type Query {
+  simpleCrudApps: [SimpleCrudApp!]!
+  simpleCrudApp(id: Int!): SimpleCrudApp
+}
+
+type Mutation {
+  createSimpleCrudApp(
+    createSimpleCrudAppInput: CreateSimpleCrudAppInput!
+  ): SimpleCrudApp!
+  updateSimpleCrudApp(
+    updateSimpleCrudAppInput: UpdateSimpleCrudAppInput!
+  ): SimpleCrudApp!
+  removeSimpleCrudApp(id: Int!): SimpleCrudApp
+}
